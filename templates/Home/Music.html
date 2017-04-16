@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'Home/MusicPlayer/dist/APlayer.min.css' %}">
+</head>
+<body class="keBody">
+<div class="kePublic">
+<!--效果html开始-->
+<div class="container">
+<div id="player3" class="aplayer">
+<pre class="aplayer-lrc-content">
+[ti:Sugar]
+[ar:Maroon 5]
+[by:Maroon 5]
+[00:01.68]Sugar
+[00:03.45]演唱：Maroon 5
+</pre>
+</div>
+</div>
+<script src="{% static 'Home/MusicPlayer/dist/APlayer.min.js' %}"></script>
+<script>
+	
+    var ap3 = new APlayer({
+        element: document.getElementById('player3'),
+        narrow: false,
+        autoplay: false,
+        showlrc: true,
+        music: {
+            title: 'Sugar',
+            author: 'Maroon 5',
+            url: '{% static 'Home/MusicPlayer/music/Sugar.mp3' %}',
+            pic: '{% static 'Home/MusicPlayer/music/Maroon5.jpg' %}'
+        }
+    });
+    ap3.init();
+</script>
+<!--效果html结束-->
+</div>
+</body>
+</html>
